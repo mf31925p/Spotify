@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-CLIENT_ID = "951364c8f728453294c12dcdab120904"
-CLIENT_SECRET = "67ef40221e724e2bb22937b68dcb8c1b"
+CLIENT_ID = ""
+CLIENT_SECRET = ""
 
 date = input(" Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 year = date.split("-")[0]
@@ -39,6 +39,6 @@ for song in song_names:
     except IndexError:
         print(f"{song} doesn't exist in Spotify. Skipped.")
 
-playlist = sp.user_playlist_create(user=user_id, name=f"Brian and Karen Wedding Day", public=False)
+playlist = sp.user_playlist_create(user=user_id, name=f"Top 100 Songs {date}", public=False)
 
 sp.playlist_add_items(playlist_id=playlist["id"], items=song_uris)
